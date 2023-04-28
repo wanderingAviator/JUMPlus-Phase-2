@@ -83,12 +83,14 @@ WHERE
 	and they're asking you for help. Write a query for them. */
 ---------------------------------------------------------------------------------------
 
-SELECT DISTINCT
-    country_name
+SELECT 
+    COUNT(*) as unique_countries_with_locations
 FROM
-    countries
-        JOIN
-    locations ON countries.country_id = locations.country_id;
+    (SELECT DISTINCT
+        country_name
+    FROM
+        countries
+    JOIN locations ON countries.country_id = locations.country_id) unique_countries;
 
 ---------------------------------------------------------------------------------------
 /* 	**
