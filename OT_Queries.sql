@@ -54,15 +54,13 @@ FROM
 	 with "S". 
          Hint: Use LIKE and a wildcard. */
 ---------------------------------------------------------------------------------------
-#drop view one_c;
 
-CREATE VIEW one_c AS
-    SELECT 
-        state, city, postal_code
-    FROM
-        locations
-    WHERE
-        country_id != 'US' AND city LIKE 'S%';
+SELECT 
+    state, city, postal_code
+FROM
+    locations
+WHERE
+    country_id != 'US' AND city LIKE 'S%';
         
 ---------------------------------------------------------------------------------------
 /*  	*
@@ -74,7 +72,7 @@ CREATE VIEW one_c AS
 SELECT 
     *
 FROM
-    one_c
+    locations
 WHERE
     state IS NULL;
 
@@ -141,7 +139,7 @@ WHERE
 ---------------------------------------------------------------------------------------
         
 SELECT 
-    product_name, list_price, category_name, quantity, warehouse_name
+    product_name, list_price
 FROM
     products
         JOIN
